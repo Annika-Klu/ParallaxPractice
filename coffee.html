@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coffee</title>
+    <link rel='stylesheet' type='text/css' href='coffee.css'>
+    <link rel="stylesheet" href="https://use.typekit.net/wsv4fwf.css">
+</head>
+<body>
+    <div id='circle'></div>
+    <div id='flower'></div>
+    <div id='text'>coffee</div>
+    <div id='subtitle'>
+        a good idea since </br> 
+        <span id='year'>1500</span>
+    </div>
+</body>
+    <script type='text/javascript'>
+        
+        window.addEventListener('scroll', function () {
+            let value = window.scrollY;
+            console.log(value);
+
+            let circle = document.getElementById('circle');
+            circle.style.backgroundSize = 30 + value + '%';
+
+            let flower = document.getElementById('flower');
+            flower.style.top = value * 0.2 + '%';
+            
+            let text = document.getElementById('text');
+            let subtitle = document.getElementById('subtitle');
+            //text.style.top = 12 - value * 0.2 + '%';
+
+            let moon = document.getElementById('moon');
+
+            if (document.body.scrollTop > 180 || document.documentElement.scrollTop > 180) {
+                text.style.animation = 'fadeout 3s ease-out forwards';
+                subtitle.style.animation = 'fadeout 3s ease-out forwards';
+                flower.style.animation = 'flower 3s ease-out forwards';
+                moon.style.opacity = '1';
+            } else {
+                text.style.animation = 'fadeout 3s ease-out backwards';
+                subtitle.style.animation = 'fadeout 3s ease-out backwards';
+                flower.style.animation = 'flower 3s ease-out backwards';
+                moon.style.opacity = '0';
+            }
+        })
+    </script>
+</html>
